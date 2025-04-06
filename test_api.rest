@@ -1,0 +1,95 @@
+### Test Case 1: Get All Products
+GET http://localhost:3000/api/products
+Accept: application/json
+
+### Test Case 2: Add Product to Shopping Cart (Valid)
+POST http://localhost:3000/api/shopping_cart/1/items
+Content-Type: application/json
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+### Test Case 3: Add Product to Shopping Cart (Invalid Product)
+POST http://localhost:3000/api/shopping_cart/1/items
+Content-Type: application/json
+{
+  "productId": 999,
+  "quantity": 1
+}
+
+### Test Case 4: Add Product to Shopping Cart (Insufficient Stock)
+POST http://localhost:3000/api/shopping_cart/1/items
+Content-Type: application/json
+{
+  "productId": 1,
+  "quantity": 100
+}
+
+### Test Case 5: List Shopping Cart Items
+GET http://localhost:3000/api/shopping_cart/1/items
+Accept: application/json
+
+### Test Case 6: Remove Product from Shopping Cart
+DELETE http://localhost:3000/api/shopping_cart/1/items/1
+Accept: application/json
+
+### Test Case 7: Create Order from Shopping Cart (Valid)
+POST http://localhost:3000/api/shopping_cart/1/order
+Content-Type: application/json
+
+### Test Case 8: Create Order from Shopping Cart (Empty Cart)
+POST http://localhost:3000/api/shopping_cart/1/order
+Content-Type: application/json
+
+### Test Case 9: Fetch Order Details (Valid Order ID)
+GET http://localhost:3000/api/orders/1
+Accept: application/json
+
+### Test Case 10: Fetch Order Details (Invalid Order ID)
+GET http://localhost:3000/api/orders/999
+Accept: application/json
+
+### Test Case 11: Update Order (Valid Order ID)
+PUT http://localhost:3000/api/orders/1
+Content-Type: application/json
+{
+  "status": "shipped"
+}
+
+### Test Case 12: Update Order (Invalid Order ID)
+PUT http://localhost:3000/api/orders/999
+Content-Type: application/json
+{
+  "status": "shipped"
+}
+
+### Test Case 13: Delete Order (Valid Order ID)
+DELETE http://localhost:3000/api/orders/1
+Accept: application/json
+
+### Test Case 14: Delete Order (Invalid Order ID)
+DELETE http://localhost:3000/api/orders/999
+Accept: application/json
+
+### Test Case 15: Complete Order (Valid Order ID)
+POST http://localhost:3000/api/orders/1/complete
+Accept: application/json
+
+### Test Case 16: Complete Order (Invalid Order ID)
+POST http://localhost:3000/api/orders/999/complete
+Accept: application/json
+
+### Test Case 17: Missing Body in POST Request (Shopping Cart)
+POST http://localhost:3000/api/shopping_cart/1/items
+Content-Type: application/json
+
+{}
+
+### Test Case 18: Invalid Quantity (Negative) in POST Request
+POST http://localhost:3000/api/shopping_cart/1/items
+Content-Type: application/json
+{
+  "productId": 1,
+  "quantity": -1
+}
