@@ -1,17 +1,4 @@
 require('dotenv').config();
-:contentReference[oaicite:10]{index=10}
-
-:contentReference[oaicite:11]{index=11}
-
-:contentReference[oaicite:12]{index=12}
-  :contentReference[oaicite:13]{index=13}
-  :contentReference[oaicite:14]{index=14}
-    :contentReference[oaicite:15]{index=15}
-      :contentReference[oaicite:16]{index=16}
-      :contentReference[oaicite:17]{index=17}
-    :contentReference[oaicite:18]{index=18}
-  :contentReference[oaicite:19]{index=19}
-:contentReference[oaicite:20]{index=20}
 
 const express = require('express');
 const bodyParser = require('body-parser');
